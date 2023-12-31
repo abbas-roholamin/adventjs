@@ -7,17 +7,15 @@ const giftIds3 = [5, 1, 5, 1]
 // 3. iterate for each item, if repeated add to map.
 // 4. find the smallest index in value keys.
 function findFirstRepeated(gifts) {
-    const duplicateGifts = new Set();
+    let smallestIndex = null;
 
     for (let i = 0; i < gifts.length; i++) {
         for (let j = i + 1; j < gifts.length; j++) {
             if (gifts[i] === gifts[j]) {
-                duplicateGifts.add(j);
+                smallestIndex = smallestIndex ? Math.min(smallestIndex, j) : j
             }
         }   
     }
-
-    const smallestIndex = Math.min(...duplicateGifts);
 
     return gifts[smallestIndex] || -1;
 }
