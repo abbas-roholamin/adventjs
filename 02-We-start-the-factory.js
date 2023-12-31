@@ -15,30 +15,17 @@ const materials = 'tronesa'
 // 4. the first char which is not included isPossible = false;
 // 5. if isPossible was true, push to madeGifts
 // 6. if isPossible was true, continue;
-// 7. return the listreturn madeGifts;return madeGifts;return madeGifts;return madeGifts;
+// 7. return the list;aga ja
+
 function manufacture(gifts, materials) {
-    const madeGifts = [];
-
-    for (let i = 0; i < gifts.length; i++) {
-        const word = gifts[i]; 
-        let isPossible = true;
-            
-        for (let j = 0; j < word.length; j++) {
-            const char = word[j]; 
-
-            if (materials.includes(char)) continue;
-            isPossible = false;
-
-        }
-
-        if (isPossible) {
-            madeGifts.push(word);
-        }
-        
-    }
-
-    return madeGifts;
-}
-
+    const madeGifts = gifts.filter((word)=>{ 
+         for (let char of word) {
+             if (!materials.includes(char)) return false;
+         }
+         return true;
+     })
+ 
+     return madeGifts;
+ }
 
 console.log(manufacture(gifts, materials) );
