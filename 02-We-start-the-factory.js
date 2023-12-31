@@ -15,17 +15,10 @@ const materials = 'tronesa'
 // 4. the first char which is not included isPossible = false;
 // 5. if isPossible was true, push to madeGifts
 // 6. if isPossible was true, continue;
-// 7. return the list;aga ja
+// 7. return the list;
 
 function manufacture(gifts, materials) {
-    const madeGifts = gifts.filter((word)=>{ 
-         for (let char of word) {
-             if (!materials.includes(char)) return false;
-         }
-         return true;
-     })
- 
-     return madeGifts;
- }
+    return gifts.filter(word => [...word].every(char => materials.includes(char)));
+}
 
 console.log(manufacture(gifts, materials) );
